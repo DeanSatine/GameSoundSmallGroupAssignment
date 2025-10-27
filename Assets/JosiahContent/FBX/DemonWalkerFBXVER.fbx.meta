@@ -3,7 +3,17 @@ guid: 2cc3ec0bfbb242948a41889cc256720b
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DemonBody
+    second: {fileID: 2100000, guid: 7978bae4ae840f343aeb4f2763c0c809, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Horns
+    second: {fileID: 2100000, guid: f20607f685a1a4946bb59d315280e971, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
