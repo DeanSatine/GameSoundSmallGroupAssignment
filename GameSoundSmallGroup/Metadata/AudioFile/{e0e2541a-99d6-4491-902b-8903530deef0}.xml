@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{e0e2541a-99d6-4491-902b-8903530deef0}">
+		<property name="assetPath">
+			<value>Edison/Theme.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>74.292244897959179</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{50e6f979-d089-49ee-8236-13177a584ca5}</destination>
+		</relationship>
+	</object>
+</objects>

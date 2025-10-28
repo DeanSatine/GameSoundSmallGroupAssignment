@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD.Studio;
 
 public class DialogueSequence : MonoBehaviour
 {
@@ -14,12 +16,14 @@ public class DialogueSequence : MonoBehaviour
     public AudioSource monsterAudioSource;
     public AudioSource playerAudioSource;
     public Animator monsterAnimator;
+    public GameObject monster;
+    public GameObject player;
 
     [Header("Audio Clips")]
-    public AudioClip monsterLine1;
-    public AudioClip playerLine1;
-    public AudioClip monsterLine2;
-    public AudioClip laughClip;
+    public EventReference monsterLine1;
+    public EventReference playerLine1;
+    public EventReference monsterLine2;
+    public EventReference laughClip;
 
     [Header("Animation Settings")]
     public string walkAnimationName = "Walk";
@@ -80,13 +84,14 @@ public class DialogueSequence : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        yield return StartCoroutine(PlayVoiceLine(monsterAudioSource, monsterLine1));
+        yield return StartCoroutine(PlayVoiceLine(monsterLine1, monster));
 
-        yield return StartCoroutine(PlayVoiceLine(playerAudioSource, playerLine1));
+        yield return StartCoroutine(PlayVoiceLine(playerLine1, player));
 
-        yield return StartCoroutine(PlayVoiceLine(monsterAudioSource, monsterLine2));
+        yield return StartCoroutine(PlayVoiceLine(monsterLine2,  monster));
 
         yield return StartCoroutine(MonsterJumpScare());
+        AudioManager.instance.ReleaseEventInstance();
 
         yield return StartCoroutine(FadeToBlack());
 
@@ -119,12 +124,13 @@ public class DialogueSequence : MonoBehaviour
         }
     }
 
-    IEnumerator PlayVoiceLine(AudioSource source, AudioClip clip)
+    IEnumerator PlayVoiceLine(EventReference clip, GameObject position)
     {
-        if (clip != null && source != null)
+        if (clip.Path != null)
         {
-            source.PlayOneShot(clip);
-            yield return new WaitForSeconds(clip.length);
+            yield return AudioManager.instance.PlayVoiceLine(clip, position, true);
+            AudioManager.instance.ReleaseEventInstance();
+            //yield return new WaitForSeconds(clip.);
         }
         else
         {
@@ -137,15 +143,16 @@ public class DialogueSequence : MonoBehaviour
         Vector3 jumpTarget = playerCamera.position + playerCamera.forward * jumpDistance;
         monsterTransform.position = jumpTarget;
 
-        if (laughClip != null && monsterAudioSource != null)
+        if (laughClip.Path != null)
         {
-            monsterAudioSource.PlayOneShot(laughClip);
+             yield return AudioManager.instance.PlayVoiceLine(laughClip, monster, false);
         }
 
         float spazzTime = spazzDuration;
-        if (laughClip != null && laughClip.length > spazzDuration)
+        float checkSpazzTime = AudioManager.instance.GetSoundLengthInSeconds(laughClip);
+        if (laughClip.Path != null && checkSpazzTime > spazzDuration)
         {
-            spazzTime = laughClip.length;
+            spazzTime = checkSpazzTime;
         }
 
         float elapsed = 0f;

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{3915ad40-a829-4ab2-9026-3023f24a4500}">
+		<property name="assetPath">
+			<value>Dean/ThorunVoice1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>15.315510204081633</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{50e6f979-d089-49ee-8236-13177a584ca5}</destination>
+		</relationship>
+	</object>
+</objects>
