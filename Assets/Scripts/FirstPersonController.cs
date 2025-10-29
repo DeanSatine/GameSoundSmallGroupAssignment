@@ -1,5 +1,9 @@
+using System;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 [RequireComponent(typeof(CharacterController))]
 public class FirstPersonController : MonoBehaviour
@@ -20,6 +24,10 @@ public class FirstPersonController : MonoBehaviour
     private float bobTimer = 0f;
     private Vector3 cameraStartPosition;
     private bool canMove = true;
+    
+    [Header("Sound")]
+    private EventInstance playerFootstep;
+
 
     void Awake()
     {
@@ -33,6 +41,11 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        playerFootstep = AudioManager.instance.CreateEventInstance(FmodEvents.instance.playerWalkingEvent);
+    }
+
     void Update()
     {
         if (canMove)
@@ -41,6 +54,7 @@ public class FirstPersonController : MonoBehaviour
             HandleCameraRotation();
             HandleCameraBob();
         }
+        UpdateSound();
     }
 
     void HandleMovement()
@@ -76,6 +90,23 @@ public class FirstPersonController : MonoBehaviour
         {
             bobTimer = 0f;
             cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, cameraStartPosition, Time.deltaTime * bobSpeed);
+        }
+    }
+
+    private void UpdateSound()
+    {
+        if (moveInput.magnitude > 0.1f)
+        {
+            PLAYBACK_STATE playbackState;
+            playerFootstep.getPlaybackState(out playbackState);
+            if (playbackState == PLAYBACK_STATE.STOPPED)
+            {
+                playerFootstep.start();
+            }
+        }
+        else
+        {
+            playerFootstep.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }
 

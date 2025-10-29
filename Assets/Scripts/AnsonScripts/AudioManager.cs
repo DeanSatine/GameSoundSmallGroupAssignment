@@ -40,9 +40,9 @@ public class AudioManager : MonoBehaviour
     //USABLE METHODS FOR OTHER SCRIPTS START HERE
 
 	//Basically you do AudioManager.instance.PlayOneShot(clip) on an script you want one shot sound in
-    public void PlayOneShot(EventReference clip)
+    public void PlayOneShot(EventReference clip, Vector3 position)
     {
-        RuntimeManager.PlayOneShot(clip);
+        RuntimeManager.PlayOneShot(clip, position);
     }
     
     
@@ -96,10 +96,12 @@ public class AudioManager : MonoBehaviour
     
     //Bellow are stuff that is left over from my previous game that I don't want to delete lol
     
-    /*public void SetMusicArea(MusicEnum area)
+    public void SetMusicArea(MusicEnum area)
     {
+        StopMusic();
         musicEventInstance.setParameterByName("area", (float) area);
-    }*/
+        musicEventInstance.start();
+    }
     
     public void StopEventInstance(EventInstance eventInstance)
     {

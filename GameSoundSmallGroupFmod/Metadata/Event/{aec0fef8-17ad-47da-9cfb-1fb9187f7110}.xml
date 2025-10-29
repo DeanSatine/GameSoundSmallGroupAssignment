@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{aec0fef8-17ad-47da-9cfb-1fb9187f7110}">
 		<property name="name">
-			<value>Ambiance</value>
+			<value>AmbianceMenu</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{a88dfcac-130c-47f9-828c-6f72e9dfcfaa}</destination>
+			<destination>{18164a9f-7046-4762-bb72-b7ac65bd9a30}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{38d49104-ee91-4f05-8736-449b61abd268}</destination>

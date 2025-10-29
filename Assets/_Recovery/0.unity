@@ -393,13 +393,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403229a2a5dd50a4087a03f29b7f34df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FmodEvents
+  playerWalkingEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   music:
     Guid:
       Data1: -1363083528
       Data2: 1205475245
       Data3: -1189086308
       Data4: 275873560
-    Path: event:/InGame/Ambiance
+    Path: event:/UI/AmbianceMenu
 --- !u!114 &361479060
 MonoBehaviour:
   m_ObjectHideFlags: 0

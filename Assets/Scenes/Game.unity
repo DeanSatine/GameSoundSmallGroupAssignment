@@ -393,13 +393,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403229a2a5dd50a4087a03f29b7f34df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FmodEvents
+  playerWalkingEvent:
+    Guid:
+      Data1: -202619399
+      Data2: 1243984294
+      Data3: 1253916312
+      Data4: 1823614304
+    Path: event:/InGame/Footstep
   music:
     Guid:
-      Data1: -1363083528
-      Data2: 1205475245
-      Data3: -1189086308
-      Data4: 275873560
-    Path: event:/InGame/Ambiance
+      Data1: -857055126
+      Data2: 1125273402
+      Data3: -1926142047
+      Data4: -1503795773
+    Path: event:/InGame/MusicArea
 --- !u!114 &361479060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b939059429d63af4e8cee0f8dfd8b3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  needMusic: 0
+  needMusic: 1
 --- !u!1 &373333643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,6 +1507,7 @@ GameObject:
   - component: {fileID: 1880656733}
   - component: {fileID: 1880656732}
   - component: {fileID: 1880656736}
+  - component: {fileID: 1880656737}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1649,6 +1657,13 @@ MonoBehaviour:
       Data3: -500472683
       Data4: -929113494
     Path: event:/InGame/Dialouge4
+  finalWhisper:
+    Guid:
+      Data1: 1044066359
+      Data2: 1177478654
+      Data3: 1315240893
+      Data4: -1710862074
+    Path: event:/InGame/FinalWhisper
   walkAnimationName: Walk
   idleAnimationName: Idle
   monsterApproachTarget: {fileID: 373333644}
@@ -1658,7 +1673,20 @@ MonoBehaviour:
   spazzDuration: 2
   spazzIntensity: 0.5
   cameraFollowSpeed: 5
-  menuSceneName: Menu
+  menuSceneName: MainMenu
+--- !u!114 &1880656737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880656731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61450ef24791f7e4d92ded80946e0270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMusicArea
+  area: 1
 --- !u!1001 &1925086169
 PrefabInstance:
   m_ObjectHideFlags: 0

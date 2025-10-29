@@ -24,6 +24,7 @@ public class DialogueSequence : MonoBehaviour
     public EventReference playerLine1;
     public EventReference monsterLine2;
     public EventReference laughClip;
+    public EventReference finalWhisper;
 
     [Header("Animation Settings")]
     public string walkAnimationName = "Walk";
@@ -92,8 +93,12 @@ public class DialogueSequence : MonoBehaviour
 
         yield return StartCoroutine(MonsterJumpScare());
         AudioManager.instance.ReleaseEventInstance();
-
+        
+        AudioManager.instance.PlayOneShot(finalWhisper, monsterTransform.position);
+        
         yield return StartCoroutine(FadeToBlack());
+        
+        AudioManager.instance.StopMusic();
 
         SceneManager.LoadScene(menuSceneName);
     }
@@ -174,7 +179,7 @@ public class DialogueSequence : MonoBehaviour
             fadeImage.enabled = true;
         }
 
-        float duration = 1f;
+        float duration = 4f;
         float elapsed = 0f;
         Color color = fadeImage.color;
 
