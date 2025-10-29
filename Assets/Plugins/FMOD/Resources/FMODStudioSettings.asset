@@ -563,6 +563,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Ambiance
+  - UI
   - Voice
   BanksToLoad: []
   LiveUpdatePort: 9264

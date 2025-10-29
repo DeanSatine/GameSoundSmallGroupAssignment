@@ -399,7 +399,7 @@ MonoBehaviour:
       Data2: 1205475245
       Data3: -1189086308
       Data4: 275873560
-    Path: event:/Ambiance
+    Path: event:/InGame/Ambiance
 --- !u!114 &361479060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b939059429d63af4e8cee0f8dfd8b3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  needMusic: 1
+  needMusic: 0
 --- !u!1 &373333643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,28 +1627,28 @@ MonoBehaviour:
       Data2: 1213978902
       Data3: -600025471
       Data4: -2109871656
-    Path: event:/Dialouge1
+    Path: event:/InGame/Dialouge1
   playerLine1:
     Guid:
       Data1: -1799125641
       Data2: 1245682905
       Data3: 421734845
       Data4: 1452123116
-    Path: event:/Dialouge2
+    Path: event:/InGame/Dialouge2
   monsterLine2:
     Guid:
       Data1: -312119876
       Data2: 1322919582
       Data3: 1993941672
       Data4: 183243682
-    Path: event:/Dialouge3
+    Path: event:/InGame/Dialouge3
   laughClip:
     Guid:
       Data1: -1445671100
       Data2: 1247665965
       Data3: -500472683
       Data4: -929113494
-    Path: event:/Dialouge4
+    Path: event:/InGame/Dialouge4
   walkAnimationName: Walk
   idleAnimationName: Idle
   monsterApproachTarget: {fileID: 373333644}

@@ -39,10 +39,10 @@ public class AudioManager : MonoBehaviour
     
     //USABLE METHODS FOR OTHER SCRIPTS START HERE
 
-	//Basically you do AudioManager.instance.PlayOneShot(clip, position) on an script you want one shot sound in
-    public void PlayOneShot(EventReference clip, Vector3 position)
+	//Basically you do AudioManager.instance.PlayOneShot(clip) on an script you want one shot sound in
+    public void PlayOneShot(EventReference clip)
     {
-        RuntimeManager.PlayOneShot(clip, position);
+        RuntimeManager.PlayOneShot(clip);
     }
     
     
