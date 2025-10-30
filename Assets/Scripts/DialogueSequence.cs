@@ -131,7 +131,7 @@ public class DialogueSequence : MonoBehaviour
 
     IEnumerator PlayVoiceLine(EventReference clip, GameObject position)
     {
-        if (clip.Path != null)
+        if (!clip.IsNull)
         {
             yield return AudioManager.instance.PlayVoiceLine(clip, position, true);
             AudioManager.instance.ReleaseEventInstance();
@@ -148,14 +148,14 @@ public class DialogueSequence : MonoBehaviour
         Vector3 jumpTarget = playerCamera.position + playerCamera.forward * jumpDistance;
         monsterTransform.position = jumpTarget;
 
-        if (laughClip.Path != null)
+        if (!laughClip.IsNull)
         {
              yield return AudioManager.instance.PlayVoiceLine(laughClip, monster, false);
         }
 
         float spazzTime = spazzDuration;
         float checkSpazzTime = AudioManager.instance.GetSoundLengthInSeconds(laughClip);
-        if (laughClip.Path != null && checkSpazzTime > spazzDuration)
+        if (!laughClip.IsNull && checkSpazzTime > spazzDuration)
         {
             spazzTime = checkSpazzTime;
         }

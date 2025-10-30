@@ -53,8 +53,13 @@ public class FirstPersonController : MonoBehaviour
             HandleMovement();
             HandleCameraRotation();
             HandleCameraBob();
+            UpdateSound();
         }
-        UpdateSound();
+        else
+        {
+            playerFootstep.stop(STOP_MODE.ALLOWFADEOUT);
+        }
+        
     }
 
     void HandleMovement()
